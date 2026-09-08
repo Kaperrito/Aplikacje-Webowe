@@ -3,3 +3,7 @@ node_modules
 
 # zmienne środowiskowe - Nigdy, bywają tam hasła do bazy 
 .env
+
+# katalogi budowania
+dist/
+build/
