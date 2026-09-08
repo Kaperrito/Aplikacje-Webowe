@@ -7,3 +7,8 @@ node_modules
 # katalogi budowania
 dist/
 build/
+
+# system i edytor
+.DS_Store
+Thumbs.db
+.vscode/
