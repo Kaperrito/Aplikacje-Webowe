@@ -1,3 +1,5 @@
 # zalezności - odtwarzalne z package.json
 node_modules
 
+# zmienne środowiskowe - Nigdy, bywają tam hasła do bazy 
+.env
