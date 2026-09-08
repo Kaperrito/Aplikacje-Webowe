@@ -12,3 +12,5 @@ build/
 .DS_Store
 Thumbs.db
 .vscode/
+
+node_modules/ potrafi ważyć setki megabajtów i odtwarza się jedną komendą npm install .env z hasłem do bazy wysłanym na publicznego GitHuba to klasyczny wyciek - i tego nie da się cofnąć, bo historia zostaje
