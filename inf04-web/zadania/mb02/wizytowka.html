@@ -27,9 +27,15 @@
 
         .ramka{
             width: 20%;
+            transition: 1s;
             border: solid 1px black;
             border-radius: 5%;
             box-shadow: 5px 5px;
+        }
+        .ramka:hover{
+            
+            transform: scale(1.2);
+            box-shadow: 6px 6px;
         }
 
         .formularz{
@@ -42,8 +48,24 @@
         }
 
         .formularz input, .formularz select,.formularz textarea {
+            margin-top: 1px;
             width: 40%;
             box-sizing: border-box;
+        }
+        .formularz button{
+            display: block;
+            margin-top: 2.5px;
+            font-size: 90%;
+            width: 25%;
+            height: 25%;
+            margin: 10px auto 0;
+        }
+
+        .formularz button:hover{
+            background-color: black;
+            color: white;
+            border: solid 1px black;
+            border-radius: 5%;
         }
     </style>
 </head>
@@ -84,7 +106,7 @@
                     <option>2</option>
                     <option>3</option>
                 </select><br>
-                <button type="submit">Wyslij</button>
+                <button type="submit">Wyślij</button>
             </form>
         </section>
        
