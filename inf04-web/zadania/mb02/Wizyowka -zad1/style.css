@@ -1,0 +1,99 @@
+ * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f2f2f2;
+        }
+
+        section {
+            margin: 1.5%;
+        }
+        h1{
+            font-size: 70px;
+        }
+
+        .kolumna {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: large;
+        }
+
+        .naglowek {
+            padding: 25px;
+        }
+
+        .obraz {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .ramka {
+            width: 30%;
+            padding: 20px;
+            background-color: #ffffff;
+            transition: 0.3s;
+            border: solid 1px #cccccc;
+            border-radius: 10px;
+            box-shadow: 4px 4px #cccccc;
+        }
+
+        .ramka:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px #bbbbbb;
+        }
+
+        .umiejetnosci li {
+            margin: 8px;
+        }
+
+        .formularz {
+            padding: 20px;
+        }
+
+        .formularz label {
+            display: inline-block;
+            width: 30%;
+            padding: 5px;
+        }
+
+        .formularz input,
+        .formularz select,
+        .formularz textarea {
+            margin-top: 3px;
+            width: 65%;
+            padding: 6px;
+            border: 1px solid #bbbbbb;
+            border-radius: 4px;
+        }
+
+        .formularz button {
+            display: block;
+            margin: 15px auto 0;
+            padding: 8px 20px;
+            font-size: 90%;
+            cursor: pointer;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            background-color: #eeeeee;
+        }
+
+        .formularz button:hover {
+            background-color: #2f2f2f;
+            color: #ffffff;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+            
+        }
+        a:hover{
+            color: #2f2f2f;
+            text-decoration: underline;
+        }
+        .blad{
+            color: #ff0000;
+        }

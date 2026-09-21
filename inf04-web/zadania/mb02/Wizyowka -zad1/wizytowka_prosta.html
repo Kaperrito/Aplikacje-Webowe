@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Wizytowka - Kacper</title>
+</head>
+
+<body>
+    <header class="kolumna naglowek">
+        <h1>Kacper 5p1t</h1>
+        <img class="obraz" alt="Zdjęcie profilowe" src="https://media.istockphoto.com/id/2168774111/vector/avatar-or-person-sign-profile-picture-portrait-icon-user-profile-symbol.jpg?s=612x612&w=0&k=20&c=6qw1LRG53z00RXJnVKQC58W7XnW2gdQfGBIR43E97Oc=">
+    </header>
+
+    <main class="kolumna">
+        <section class="ramka umiejetnosci">
+            <h2>Umiejętności</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>PHP</li>
+                <li>C#</li>
+                <li>C++</li>
+            </ul>
+        </section>
+
+        <section class="ramka umiejetnosci">
+            <h2>Zainteresowania</h2>
+            <p><a href="https://fabryka-formy.pl/"> Siłownia</a></p>
+            <p><a href="https://pl.wikipedia.org/wiki/Psychologia">Psychologia</a></p>
+            <p><a href="https://pl.wikipedia.org/wiki/Pi%C5%82ka_siatkowa"> Siatkówka</a></p>
+        </section>
+
+        <section class="ramka formularz" id="kontakt">
+            <h2>Kontakt</h2>
+            <form id="formularz" novalidate>
+
+                <div class="pole">
+                    <label for="imie">Imię i nazwisko:</label>
+                    <input type="text" name="imie" id="imie">
+                    <p class="blad" id="blad-imie"></p>
+                </div>
+
+                <div class="pole">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                    <p class="blad" id="blad-email"></p>
+                </div>
+
+                <div class="pole">
+                    <label for="temat">Temat:</label>
+                    <select id="temat" name="temat">
+                        <option value="">wybierz temat</option>
+                        <option value="1">temat 1</option>
+                        <option value="2">temat 2</option>
+                        <option value="3">temat 3</option>
+                    </select>
+                    <p class="blad" id="blad-temat"></p>
+                </div>
+
+                <div class="pole">
+                    <label for="wiadomosc">Wiadomość:</label>
+                    <textarea name="wiadomosc" id="wiadomosc" rows="5"></textarea>
+                    <p class="blad" id="blad-wiadomosc"></p>
+                </div>
+
+                <button type="submit" class="przycisk"> Wyślij</button>
+            </form>
+
+
+            <div id="podziekowanie" class="podziekowanie" hidden>
+                <h3>Dziękuję za wiadomość!</h3>
+                <p id="podziekowanie-tresc"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
