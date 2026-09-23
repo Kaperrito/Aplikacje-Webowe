@@ -10,29 +10,62 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <main class="container">
-        <h1>Galeria zdjęć</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">Galeria Podróży</a>
+    
+          <button class="navbar-toggler" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#menuGlowne"
+                  aria-controls="menuGlowne" aria-expanded="false" aria-label="Przełącz menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="menuGlowne">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#galeria">Galeria</a></li>
+              <li class="nav-item"><a class="nav-link" href="#kategorie">Kategorie</a></li>
+              <li class="nav-item"><a class="nav-link" href="#stopka">Kontakt</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-            <div class="container">
-              <a class="navbar-brand fw-bold" href="#">Galeria Podróży</a>
-        
-              <button class="navbar-toggler" type="button"
-                      data-bs-toggle="collapse" data-bs-target="#menuGlowne"
-                      aria-controls="menuGlowne" aria-expanded="false" aria-label="Przełącz menu">
-                <span class="navbar-toggler-icon"></span>
+      <header class="container py-4 py-lg-5">
+        <div class="row align-items-center g-3">
+          <div class="col-12 col-lg-8">
+            <h1 class="mb-2">Galeria zdjęć</h1>
+            <p class="lead text-body-secondary mb-0">
+              Zdjęcia z wypraw w góry, nad morze i po mieście. Wybierz kategorię,
+              żeby zawęzić widok — albo powiększ zdjęcie, które Ci się spodoba.
+            </p>
+          </div>
+    
+          <div class="col-12 col-lg-4">
+            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+              <button type="button" class="btn btn-outline-secondary"
+                      data-bs-toggle="offcanvas" data-bs-target="#panelFiltrow"
+                      aria-controls="panelFiltrow">
+                Filtry
               </button>
-        
-              <div class="collapse navbar-collapse" id="menuGlowne">
-                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link active" aria-current="page" href="#galeria">Galeria</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#kategorie">Kategorie</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#stopka">Kontakt</a></li>
-                </ul>
-              </div>
+              <button type="button" class="btn btn-primary"
+                      data-bs-toggle="modal" data-bs-target="#dodajZdjecie">
+                Dodaj zdjęcie
+              </button>
             </div>
-          </nav>
+          </div>
+        </div>
+      </header>
+
+    <main class="container">
+        
     </main>
+    
+    <footer id="stopka" class="border-top mt-5 py-4">
+        <div class="container text-center text-body-secondary">
+          <p class="mb-1">Galeria Podróży &copy; 2026 — makieta na zajęcia INF.04</p>
+          <p class="mb-0 small">Zdjęcia pobierane z serwisu picsum.photos</p>
+        </div>
+      </footer>    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
