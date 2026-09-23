@@ -57,9 +57,31 @@
       </header>
 
     <main class="container">
-        
+        <div id="kategorie" class="d-flex flex-wrap gap-2 mb-4">
+            <button type="button" class="btn btn-outline-primary active" aria-pressed="true">Wszystkie</button>
+            <button type="button" class="btn btn-outline-primary">Góry</button>
+            <button type="button" class="btn btn-outline-primary">Morze</button>
+            <button type="button" class="btn btn-outline-primary">Miasto</button>
+        </div>
+
+        <div id="galeria" class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card h-100 shadow-sm">
+                <img src="https://picsum.photos/seed/morskie-oko/600/400"
+                     class="card-img-top" alt="Tafla jeziora w Tatrach tuż przed wschodem słońca.">
+                <div class="card-body d-flex flex-column">
+                  <h3 class="card-title h5">Morskie Oko o świcie</h3>
+                  <p><span class="badge text-bg-success">Góry</span></p>
+                  <p class="card-text text-body-secondary">Tafla jeziora w Tatrach tuż przed wschodem słońca.</p>
+                  <button type="button" class="btn btn-outline-primary mt-auto"
+                          data-bs-toggle="modal" data-bs-target="#zdjecie1">
+                    Powiększ
+                  </button>
+                </div>
+              </div>
+            </div>
     </main>
-    
+
     <footer id="stopka" class="border-top mt-5 py-4">
         <div class="container text-center text-body-secondary">
           <p class="mb-1">Galeria Podróży &copy; 2026 — makieta na zajęcia INF.04</p>
