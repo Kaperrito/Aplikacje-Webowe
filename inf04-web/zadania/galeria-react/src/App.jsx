@@ -5,6 +5,7 @@ import CategoryBar from './components/categoryBar'
 import Gallery from './components/gallery'
 import Footer from './components/Footer'
 import AddPhotoModal from './components/AddPhotomodal'
+import FiltersOffcanvas from './components/FilterOffCanvas'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       </main>
       <Footer />
       <AddPhotoModal />
+      <FiltersOffcanvas />
     </>
   )
 }
