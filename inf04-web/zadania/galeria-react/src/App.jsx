@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar'
+import CategoryBar from './components/categoryBar'
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
           </div>
         </div>
       </header>
+
+      <main className="container">
+        <CategoryBar />
+      </main>
     </>
   )
 }
