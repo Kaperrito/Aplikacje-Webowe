@@ -15,9 +15,12 @@ function App() {
   function usunZdj(id){
     setZdjecia(zdjecia.filter(z=>z.id !== id))
   }
-  function dodajZdjecie(){
+  function dodajZdjecie(nowe){
     const noweID = Math.max(...zdjecia.map(x=>x.id))+1
     setZdjecia([...zdjecia,{ ...nowe, id: noweID,favorite:false}])
+  }
+  function przelaczUlubione(id){
+    setZdjecia(zdjecia.map(x=>(x.id === id ? {...x, favorite: !x.favorite} : x)))
   }
   return (
     <>
@@ -48,7 +51,7 @@ function App() {
         {
           widoczne.length === 0 && (<div className='alert alert-warning'>Nie znaleziono zdjęć w tej kategorii</div>)
         }
-        <Gallery zdjecia = {widoczne} onUsun={usunZdj}/>
+        <Gallery zdjecia = {widoczne} onUsun={usunZdj} onPrzelacz={przelaczUlubione}/>
       </main>
       <Footer />
       <AddPhotoModal onDodaj={dodajZdjecie}/>
