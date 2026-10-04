@@ -3,6 +3,8 @@ import './App.css'
 import Navbar from './components/navbar'
 import CategoryBar from './components/categoryBar'
 import Gallery from './components/gallery'
+import Footer from './components/Footer'
+import AddPhotoModal from './components/AddPhotomodal'
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <CategoryBar />
         <Gallery />
       </main>
+      <Footer />
+      <AddPhotoModal />
     </>
   )
 }
