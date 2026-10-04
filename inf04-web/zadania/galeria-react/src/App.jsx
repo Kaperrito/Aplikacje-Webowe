@@ -10,6 +10,8 @@ import photos from './data/photos.json'
 
 function App() {
   const [zdjecia,setZdjecia] = useState(photos)
+  const [aktywnaKategoria,setAktywnaKategoria] = useState('wszystkie')
+  const widoczne = aktywnaKategoria === "wszystkie" ? zdjecia : zdjecia.filter(x => x.category === aktywnaKategoria)
   return (
     <>
       <Navbar />
@@ -32,8 +34,11 @@ function App() {
       </header>
 
       <main className="container">
-        <CategoryBar />
-        <Gallery zdjecia = {zdjecia}/>
+        <CategoryBar aktywna = {aktywnaKategoria} onWybierz={setAktywnaKategoria} />
+        {widoczne.length === 0 && (
+          <div className='alert alert-warning'>Nie znaleziono zdjęć tej kategorii</div>
+        )}
+        <Gallery zdjecia = {widoczne}/>
       </main>
       <Footer />
       <AddPhotoModal />
