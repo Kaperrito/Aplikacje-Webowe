@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar'
 import CategoryBar from './components/categoryBar'
+import Gallery from './components/gallery'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
             <h1 className="mb-2">Galeria zdjęć</h1>
               <p className="lead text-body-secondary mb-0">
                 Zdjęcia z wypraw w góry, nad morze i po mieście. Wybierz kategorię,
-                żeby zawęzić widok — albo powiększ zdjęcie, które Ci się spodoba.
+                żeby zawęzić widok— albo powiększ zdjęcie, które Ci się spodoba.
               </p>
           </div>
           <div className="col-12 col-lg-4">
@@ -27,6 +28,7 @@ function App() {
 
       <main className="container">
         <CategoryBar />
+        <Gallery />
       </main>
     </>
   )
