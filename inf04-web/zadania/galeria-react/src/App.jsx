@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
 import Navbar from './components/navbar'
 import CategoryBar from './components/categoryBar'
@@ -9,6 +9,22 @@ import FiltersOffcanvas from './components/FilterOffCanvas'
 
 function App() {
   const [zdjecia,setZdjecia] = useState([])
+  useEffect(()=>{
+    async function pobierzZdjecia() {
+      try{
+        const odpowiedz = await fetch('/photos.json')
+        if(!odpowiedz.ok){
+          throw new Error('Błąd serwera: ' + odpowiedz.status)
+        }
+        const dane = await odpowiedz.json()
+        setZdjecia(dane)
+      }catch(err){
+        console.log(err.message)
+      }
+    }
+    pobierzZdjecia()
+  },[])
+
   const [aktywnaKategoria,setAktywnaKategoria] = useState('wszystkie')
   const widoczne = aktywnaKategoria === "wszystkie" ? zdjecia : zdjecia.filter(x => x.category === aktywnaKategoria)
   function usunZdj(id){
