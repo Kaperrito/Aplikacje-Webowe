@@ -17,8 +17,10 @@ function Zdjeciednia() {
         if (!odpowiedz.ok) throw new Error('Bład serwera:' + odpowiedz.status)
         const dane = await odpowiedz.json()
         setZdjecie(dane)
+        setError(null)
       } catch (err) {
         setError(err.message)
+        setZdjecie(null)
       } finally {
         setIsLoading(false)
       }
@@ -27,7 +29,17 @@ function Zdjeciednia() {
     pobierz()
   }, [id])
   return (
-    <p>Zdjęcie dnia - tu bedzie widok</p>
+    <div className="container mt-5 mb-5">
+      <h2>Zdjęcie dnia</h2>
+      {error && <div className="alert alert-danger">Błąd: {error}</div>}
+      {zdjecie && (
+        <>
+          <img src={`https://picsum.photos/id/${id}/400/250`} className="img-fluid rounded" alt={zdjecie.author} />
+          <p className="text-muted mt-2">Autor: {zdjecie.author}</p>
+        </>
+      )}
+      <button className="btn btn-outline-primary" disabled={isLoading} onClick={() => setId(losowaId())} >{isLoading ? 'Losuję...' : 'Losuj nowe zdjęcie'}</button>
+    </div>
   )
 }
 
