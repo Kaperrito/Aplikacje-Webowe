@@ -8,6 +8,10 @@ function App() {
   const [aktywnyGatunek, setAktywnyGatunek] = useState('wszystkie')
 
   const widoczne = aktywnyGatunek === 'wszystkie'? ksiazki: ksiazki.filter(k => k.gatunek === aktywnyGatunek)
+
+  function przelaczUlubiona(id) {
+    setKsiazki(ksiazki.map(k => (k.id === id ? { ...k, ulubiona: !k.ulubiona } : k)))
+  }
   return (
     <>
       <div className='container mt-4'>
@@ -19,6 +23,7 @@ function App() {
           <button key={gatunek} type="button" className={`btn btn-outline-primary${aktywnyGatunek === gatunek ? ' active' : ''}`} onClick={() => setAktywnyGatunek(gatunek)}>{gatunek} </button>
         ))}
       </div>
+      <p className="text-body-secondary">Wyświetlono {widoczne.length} z {ksiazki.length} ksiażek</p>
 
       <div className='row g-3'>
         {widoczne.map(ksiazka=>(
@@ -26,6 +31,7 @@ function App() {
           <div className={`card h-100 ${ksiazka.dostepna ? 'border-success' : 'border-danger'}`}>
             <div className='card-body'>
               <h3 className='card-title h5'>{ksiazka.tytul}</h3>
+              <button type="button" className="btn btn-link p-0 fs-4" onClick={() => przelaczUlubiona(ksiazka.id)}>{ksiazka.ulubiona ? '★' : '☆'}</button>
               <p className='text-body-secondary mb-1'>{ksiazka.autor}</p>
               <span className={`badge text-bg-${ksiazka.dostepna ? 'success' : 'danger'}`}>{ksiazka.dostepna ? 'Dostępna' : 'Wypożyczona'}</span>
             </div>
