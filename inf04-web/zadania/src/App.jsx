@@ -11,6 +11,24 @@ function App() {
 
   const [nazwa, setNazwa] = useState('')
   const [czas, setCzas] = useState('')
+  const [bladCzasu, setBladCzasu] = useState('')
+
+  function zapisz(event) {
+    event.preventDefault()
+
+    if (!(Number(czas) > 0)) {
+      setBladCzasu('Czas musi być dodatni')
+      return
+    }
+
+    setBladCzasu('')
+    const noweId = Math.max(...przepisy.map(p => p.id)) + 1
+    setPrzepisy([...przepisy,{ id: noweId, nazwa, kategoria: 'inne', czas: Number(czas)},
+    ])
+    setNazwa('')
+    setCzas('')
+  }
+
 
   return (
     <>
@@ -18,7 +36,6 @@ function App() {
     <div className='container mt-4'>
       <h1>Książka przepisów</h1>
    
-
     <button type="button" className="btn btn-outline-primary mb-3" onClick={() => setRosnaco(!rosnaco)}>Czas: {rosnaco ? 'rosnąco' : 'malejąco'}</button>
 
      <div className="row g-3 mb-4">
@@ -36,7 +53,7 @@ function App() {
       </div>
 
       <h2 className="h4">Dodaj przepis</h2>
-      <form className="mb-5">
+      <form className="mb-5" onSubmit={zapisz}>
 
         <div className="mb-3">
           <label htmlFor="nazwa" className="form-label">Nazwa</label>
@@ -45,7 +62,10 @@ function App() {
 
         <div className="mb-3">
           <label htmlFor="czas" className="form-label">Czas przygotowania (min)</label>
-          <input id="czas" type="number" className="form-control" value={czas} onChange={event => setCzas(event.target.value)}/>
+          <input id="czas" type="number" className={`form-control${bladCzasu ? ' is-invalid' : ''}`} value={czas} onChange={event => setCzas(event.target.value)}/>
+          {bladCzasu && (
+            <div className="invalid-feedback d-block">{bladCzasu}</div>
+          )}
         </div>
 
         <button type="submit" className="btn btn-primary">Zapisz</button>
