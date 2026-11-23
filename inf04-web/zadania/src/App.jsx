@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Routes, Route, Link} from 'react-router-dom'
 import {wydarzenia} from './wydarzenia.js'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate} from 'react-router-dom'
 const MIASTA = [...new Set(wydarzenia.map(w => w.miasto))]
 
 function ListaWydarzenPage(){
@@ -48,15 +48,34 @@ function ListaWydarzenPage(){
 
 function SzczegolyWydarzeniaPage() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const wydarzenie = wydarzenia.find(w => w.id === Number(id))
 
-  
+  if (!wydarzenie) {
+    return (
+      <div className="container mt-4">
+        <div className="alert alert-warning">Nie znaleziono wydarzenia o nr {id}</div>
+        <button type="button" className="btn btn-outline-secondary" onClick={() => navigate(-1)}>Powrot</button>
+      </div>
+    )
+  }
+
   return (
     <div className="container mt-4">
       <h1>{wydarzenie.nazwa}</h1>
       <p>Miasto: {wydarzenie.miasto}</p>
       <p>Data: {wydarzenie.data}</p>
-      <p>Cena: {wydarzenie.cena === 0 ? 'Wstęp wolny' : `${wydarzenie.cena} zł`}</p>
+      <p>Cena: {wydarzenie.cena === 0? 'Wstęp wolny' : `${wydarzenie.cena} zł`}</p>
+      <button type="button" className="btn btn-outline-secondary" onClick={() => navigate(-1)}>Powrot</button>
+    </div>
+  )
+}
+
+function NotFoundPage() {
+  return (
+    <div className="container mt-4">
+      <h1>Nie istnieje taka strona</h1>
+      <Link to="/">Powrot</Link>
     </div>
   )
 }
@@ -68,6 +87,7 @@ function App() {
     <Routes>
       <Route path='/' element={<ListaWydarzenPage />} />
       <Route path='/wydarzenie/:id' element={<SzczegolyWydarzeniaPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
